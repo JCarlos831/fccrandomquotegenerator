@@ -11,6 +11,21 @@ body{
     margin: 40px;
 }
 
+h1{
+    color: white;
+    font-size: 2em;
+}
+
+.quote{
+    color: black;
+    font-size: 1.5em;
+}
+
+.author{
+    font-size: 1em;
+}
+
+
 #quoteButton{
     border-radius: 10px;
     background-color: white;
