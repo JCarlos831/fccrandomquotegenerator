@@ -8,8 +8,8 @@ $(document).ready(function(){
     
     function newlyric(){
         
-        var hiphopQuotes = ["No matter how hard it gets, stick your chest out, keep your head up and handle it.", "Everyday women and men become legends.", "Being happy is the goal, but greatness is my mission.", "Reach for the stars so if you fall you land on the clouds"];
-        rapper = ["- Tupac Shakur, 'Me Against the World'", "- Common, 'Glory'", "- Childish Gambino, 'I'm Alright'", "- Kanye West, 'Homecoming'"];
+        var hiphopQuotes = ["I could let these dream killers kill my self-esteem, or use my arrogance as a steam to power my dreams.","No matter how hard it gets, stick your chest out, keep your head up and handle it.", "Everyday women and men become legends.", "Being happy is the goal, but greatness is my mission.", "Reach for the stars so if you fall you land on the clouds"];
+        rapper = ["- Kanye West, 'Last Call'","- Tupac Shakur, 'Me Against the World'", "- Common, 'Glory'", "- Childish Gambino, 'I'm Alright'", "- Kanye West, 'Homecoming'"];
         
             randomNumber = Math.floor(Math.random()*hiphopQuotes.length);
             randomQuote = hiphopQuotes[randomNumber];
@@ -51,6 +51,7 @@ $(document).ready(function(){
      });
      }
      getNewQuote();
+     newlyric();
 
      $(".newQuote2").on("click", function(event){
           event.preventDefault();
