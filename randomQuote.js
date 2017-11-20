@@ -1,19 +1,63 @@
 /*global $*/
 $(document).ready(function(){
+    var randomQuote; 
+    var randomNumber; 
+    var rapper;
+    var quote;
+    var author;
     
-    function newQuote(){
+    function newlyric(){
         
-        var quotes = ["No matter how hard it gets, stick your chest out, keep your head up and handle it.", "Everyday women and men become legends.", "Being happy is the goal, but greatness is my mission.", "Reach for the stars so if you fall you land on the clouds"];
-        var author = ["-Tupac Shakur", "-Common", "-Childish Gambino", "-Kanye West"];
+        var hiphopQuotes = ["No matter how hard it gets, stick your chest out, keep your head up and handle it.", "Everyday women and men become legends.", "Being happy is the goal, but greatness is my mission.", "Reach for the stars so if you fall you land on the clouds"];
+        rapper = ["- Tupac Shakur, 'Me Against the World'", "- Common, 'Glory'", "- Childish Gambino, 'I'm Alright'", "- Kanye West, 'Homecoming'"];
         
-        var randomNumber = Math.floor((Math.random()*quotes.length));
-        var randomQuote = quotes[randomNumber];
-        var randomAuthor = author[randomNumber];
+            randomNumber = Math.floor(Math.random()*hiphopQuotes.length);
+            randomQuote = hiphopQuotes[randomNumber];
+            rapper = rapper[randomNumber];
         
-        $(".quote").text(randomQuote);
-        $(".author").text(randomAuthor);
+        $("#quote1").text(randomQuote);
+        $("#author1").text(rapper);
     }
-        $("#quoteButton").on("click", function(){
-            newQuote();
+        
+        $(".tweetQuote1").on("click", function(event){
+            event.preventDefault();
+            window.open("https://twitter.com/intent/tweet?text="+encodeURIComponent('"' + randomQuote +'"' + rapper));
         });
+        
+        $(".newQuote1").on("click", function(){
+            newlyric();
+        });
+        
+        function getNewQuote(){
+          $.ajax({
+               url: "https://api.forismatic.com/api/1.0/",
+               jsonp: "jsonp",
+               dataType: "jsonp",
+               data: {
+                    method: "getQuote",
+                    lang: "en",
+                    format: "jsonp"
+               },
+          success: function(response){
+               quote= response.quoteText;
+               author= response.quoteAuthor;
+               $("#quote2").text(quote);
+               if(author){
+                    $("#author2").text("-" + author);
+               } else {
+                    $("#author2").text("- unknown")
+               }
+          }
+     });
+     }
+     getNewQuote();
+
+     $(".newQuote2").on("click", function(event){
+          event.preventDefault();
+          getNewQuote();
+     });
+     $(".tweetQuote2").on("click", function(event){
+          event.preventDefault();
+          window.open("https://twitter.com/intent/tweet?text="+encodeURIComponent('"' + quote +'"'+ " - " + author));
+     });
 });

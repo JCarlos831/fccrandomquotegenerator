@@ -1,43 +1,19 @@
 body{
-    background-color: black;
-    color: white;
-    font-family: sans-serif;
+     background-image: url(celebration.png);
+     background-color: #000000;
+     color: #ffffff;
 }
 
-.box1{
-    background-color: white;
-    border-radius: 10px;
-    color: black;
-    margin: 40px;
+#title{
+     font-family: sans-serif;
+     font-size: 3em;
 }
 
-h1{
-    color: white;
-    font-size: 3em;
-}
-
-.quote{
-    color: black;
-    font-size: 1.5em;
-}
-
-.author{
-    font-size: 1em;
-}
-
-
-#quoteButton{
-    border-radius: 10px;
-    background-color: white;
-    color: black;
-}
-
-.theme1{
-    padding-top: 40px;
-    font-size: 1.75em;
-}
-
-#tweetButton{
-    font-family: sans-serif;
-    
+.theQuoteBox{
+     background-color: #ffffff;
+     border-radius: 10px;
+     color: #000000;
+     font-size: 2em;
+     margin-top: 20px;
+     margin-bottom: 20px;
 }
